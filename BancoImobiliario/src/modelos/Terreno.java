@@ -1,16 +1,16 @@
 package modelos;
 
-import java.util.List;
-
 public class Terreno extends Imovel {
 
 	private int quantidadeDeCasas;
-	private List<Integer> tabelaAlugueis;
+	private int valorCadaCasa;
+	private TabelaAluguel tabelaAluguel;
 
-	public Terreno(Dono dono, Acao acao, int valor, int quantidadeDeCasas, List<Integer> tabelaAlugueis) {
+	public Terreno(Dono dono, Acao acao, int valor, int valorCadaCasa, TabelaAluguel tabelaAluguel) {
 		super(dono, acao, valor);
-		this.quantidadeDeCasas = quantidadeDeCasas;
-		this.tabelaAlugueis = tabelaAlugueis;
+		this.quantidadeDeCasas = 0;
+		this.valorCadaCasa = valorCadaCasa;
+		this.tabelaAluguel = tabelaAluguel;
 	}
 
 	public int getQuantidadeDeCasas() {
@@ -23,7 +23,11 @@ public class Terreno extends Imovel {
 
 	@Override
 	public int getValorAluguel(int multiplicador) {
-		return tabelaAlugueis.get(quantidadeDeCasas);
+		if( quantidadeDeCasas == 0 ) return this.tabelaAluguel.getSemCasa();
+		else if( quantidadeDeCasas == 1 ) return this.tabelaAluguel.getComUmaCasa();
+		else if( quantidadeDeCasas == 2 ) return this.tabelaAluguel.getComDuasCasas();
+		else if( quantidadeDeCasas == 3 ) return this.tabelaAluguel.getComTresCasas();
+		else if( quantidadeDeCasas == 4 ) return this.tabelaAluguel.getComQuatroCasas();
+		else return this.tabelaAluguel.getHotel();
 	}
-
 }

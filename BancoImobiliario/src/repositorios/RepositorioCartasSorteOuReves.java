@@ -8,7 +8,7 @@ import cartasSorteOuReves.CartaSorteOuReves;
 
 public class RepositorioCartasSorteOuReves {
 
-	private static RepositorioCartasSorteOuReves repositorio;
+	private static RepositorioCartasSorteOuReves repositorio = null;
 	private List<CartaSorteOuReves> cartasUsadas;
 	private List<CartaSorteOuReves> cartasNaoUsadas;
 	
