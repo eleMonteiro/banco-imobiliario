@@ -6,8 +6,8 @@ import jplay.Window;
 public class Main {
 
 	public static void main(String[] args) {
-		Window janela = new Window(704, 704);
-		new MenuInicial(janela);
+		MenuInicial menuInicial = new MenuInicial(new Window(704, 704));
+		menuInicial.iniciar();
 	}
 
 }
