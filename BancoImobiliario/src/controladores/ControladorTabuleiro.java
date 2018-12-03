@@ -21,7 +21,7 @@ public class ControladorTabuleiro {
 
 	}
 
-	public CartaSorteOuReves sortearCartaSorteOuRevés() {
+	public CartaSorteOuReves sortearCartaSorteOuReves() {
 		return null;
 	}
 
@@ -29,11 +29,11 @@ public class ControladorTabuleiro {
 		return 0;
 	}
 
-	public void comprarImóvel(Imovel imóvel, Dono novoDono) {
+	public void comprarImovel(Imovel imovel, Dono novoDono) {
 
 	}
 
-	public void pagarAluguelDeImovel(Imovel imóvel, Jogador jogador) {
+	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador) {
 
 	}
 

@@ -27,5 +27,4 @@ public class Dado {
 		return new FaceDadosSorteado(this.facesDadoUm.get(0), this.facesDadoDois.get(0));
 	}
 	
-	
 }

@@ -24,8 +24,7 @@ public class Casa {
 		jogadores.remove(jogador);
 	}
 
-	public Dono obterDono() {
+	public Dono getDono() {
 		return dono;
 	}
-
 }
