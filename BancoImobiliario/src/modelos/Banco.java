@@ -1,12 +1,11 @@
 package modelos;
 
-public class Banco {
+public class Banco extends Dono {
 
 	private static Banco banco = null;
-	private int quantidadeDinheiro;
 	
 	private Banco() {
-		this.quantidadeDinheiro = 5000;
+		super(5000);
 	}
 	
 	public static Banco getInstance() {
