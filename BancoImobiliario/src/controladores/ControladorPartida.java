@@ -3,22 +3,23 @@ package controladores;
 import java.util.List;
 
 import modelos.Jogador;
+import modelos.Partida;
 
 public class ControladorPartida {
 
-	private int jogadorDaVez;
-	private List<Jogador> jogadores;
+	private Partida partida = null;
 	
 	public ControladorPartida() {
-
+		
 	}
 	
-	public Jogador getJogadorDaVez() {
-		return null;
+	public List<Jogador> criarPartida(int quantidadeJogadores){
+		this.partida = Partida.getInstance(quantidadeJogadores);
+		return this.partida.listaJogadores();
 	}
-
-	public void setJogadorDaVez(int jogadorDaVez) {
-		this.jogadorDaVez = jogadorDaVez;
+		
+	public Jogador jogadorDaVez() {
+		return  this.partida.jogadorDaVez();
 	}
 	
 	
