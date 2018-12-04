@@ -27,14 +27,16 @@ public class Tabuleiro {
 		this.cena = new Scene();
 		this.cena.loadFromFile(URL.scenario("Tabuleiro.scn"));
 		this.dadoDuplo = new DadoDuplo();
-		this.criarPartida(quantidadeDeJogadores);
-		this.criarCasasDoTabuleiro();
+//		this.criarPartida(quantidadeDeJogadores);
+//		this.criarCasasDoTabuleiro();
 		this.iniciar();
 	}
 
 	public void iniciar() {
 		while (true) {
 			cena.draw();
+			this.dadoDuplo.setValorDadoDireita(1);
+			this.dadoDuplo.setValorDadoEsquerda(1);
 			janela.update();
 
 			if (this.teclado.keyDown(Keyboard.SPACE_KEY)) {
