@@ -5,7 +5,6 @@ import java.util.List;
 
 import controladores.ControladorDado;
 import controladores.ControladorPartida;
-import controladores.ControladorTabuleiro;
 import jplay.Keyboard;
 import jplay.Scene;
 import jplay.URL;
@@ -67,18 +66,18 @@ public class Tabuleiro {
 	}
 
 	private void novaJogada(int numeroDeCasasAAndar) {
-		ControladorPartida.getInstance().novaJogada(numeroDeCasasAAndar);
+		new ControladorPartida().novaJogada(numeroDeCasasAAndar);
 	}
 
 	private void atualizaCoordenadasPeoes() {
-		Jogador jogadorDaVez = ControladorPartida.getInstance().getJogadorDaVez();
+		Jogador jogadorDaVez = new ControladorPartida().getJogadorDaVez();
 		CasaTabuleiro casaTabuleiro = procuraCasaDoTabuleiro(jogadorDaVez.getCasaAtual());
 		Peao peao = procurarPeaoDoJogador(jogadorDaVez);
 		peao.setCoordenada(casaTabuleiro.getCoordenada());
 	}
 
 	private void mudarJogadorDaVez() {
-		ControladorPartida.getInstance().mudarJogadorDaVez();
+		new ControladorPartida().mudarJogadorDaVez();
 	}
 
 	private Peao procurarPeaoDoJogador(Jogador jogador) {
@@ -102,7 +101,7 @@ public class Tabuleiro {
 	}
 
 	private void criarPartida(int quantidadeDeJogadores) {
-		List<Jogador> jogadores = ControladorPartida.getInstance().criarPartida(quantidadeDeJogadores);
+		List<Jogador> jogadores = new ControladorPartida().criarPartida(quantidadeDeJogadores);
 
 		int spritePeao = 1;
 		for (Jogador jogador : jogadores) {
@@ -112,7 +111,8 @@ public class Tabuleiro {
 	}
 
 	private void criarCasasDoTabuleiro() {
-		List<Casa> casas = new ControladorTabuleiro().casasTabuleiro();
+		ControladorPartida controladorPartida = new ControladorPartida();
+		List<Casa> casas = controladorPartida.getTabuleiro().getCasas();
 
 		casasTabuleiro.add(new CasaTabuleiro(casas.get(0), new Coordenada(640, 0)));
 		casasTabuleiro.add(new CasaTabuleiro(casas.get(1), new Coordenada(640, 64)));
