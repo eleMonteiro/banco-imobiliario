@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Partida {
 
+	private static Partida partida;
 	private Tabuleiro tabuleiro;
 	private List<Jogador> jogadores;
 	private Jogador jogadorDaVez;
 
-	public Partida(int quantidadeDeJogadores) {
+	public Partida() {
 		this.setTabuleiro(new Tabuleiro());
 		this.setJogadores(new ArrayList<>());
-		this.criarJogadores(quantidadeDeJogadores);
-		this.setJogadorDaVez(jogadores.get(0));
+		this.setJogadores(new ArrayList<>());
 	}
 
 	public Tabuleiro getTabuleiro() {
@@ -32,11 +32,15 @@ public class Partida {
 		this.jogadores = jogadores;
 	}
 
-	private void criarJogadores(int quantidadeDeJogadores) {
+	public List<Jogador> criarJogadores(int quantidadeDeJogadores) {
 		for (int i = 0; i < quantidadeDeJogadores; i++) {
 			Jogador novoJogador = new Jogador(2458, tabuleiro.getCasaInicial());
 			jogadores.add(novoJogador);
 		}
+
+		this.setJogadorDaVez(jogadores.get(0));
+
+		return jogadores;
 	}
 
 	public Jogador getJogadorDaVez() {
@@ -57,4 +61,13 @@ public class Partida {
 
 		this.jogadorDaVez = this.jogadores.get(indiceJogador % this.jogadores.size());
 	}
+
+	public static Partida getInstance() {
+		if (partida == null) {
+			partida = new Partida();
+		}
+
+		return partida;
+	}
+
 }

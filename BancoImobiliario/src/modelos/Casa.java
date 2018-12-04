@@ -15,6 +15,7 @@ public class Casa {
 
 	public void inserirJogadorNaCasa(Jogador jogador) {
 		jogadores.add(jogador);
+		System.out.println(acao.getClass());
 //		acao.iniciarAcao(jogador);
 	}
 
