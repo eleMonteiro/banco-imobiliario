@@ -65,8 +65,8 @@ public class Tabuleiro {
 		}
 	}
 
-	private void novaJogada(int numeroDeCasasAAndar) {
-		new ControladorPartida().novaJogada(numeroDeCasasAAndar);
+	private void novaJogada(FaceDadosSorteado faceDadosSorteado) {
+		new ControladorPartida().novaJogada(faceDadosSorteado);
 	}
 
 	private void atualizaCoordenadasPeoes() {

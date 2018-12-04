@@ -22,4 +22,8 @@ public class Casa {
 	public void removerJogadorDaCasa(Jogador jogador) {
 		jogadores.remove(jogador);
 	}
+	
+	public boolean jogadorEstaNaCasa(Jogador jogador) {
+		return jogadores.contains(jogador);
+	}
 }
