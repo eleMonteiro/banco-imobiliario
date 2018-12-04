@@ -1,6 +1,5 @@
 package controladores;
 
-import cartasSorteOuReves.CartaSorteOuReves;
 import modelos.Banco;
 import modelos.Casa;
 import modelos.Dono;
@@ -13,9 +12,11 @@ public class ControladorTabuleiro {
 
 	private Tabuleiro tabuleiro;
 
-
 	public ControladorTabuleiro(Tabuleiro tabuleiro) {
 		this.setTabuleiro(tabuleiro);
+	}
+	
+	public ControladorTabuleiro() {
 	}
 
 	public Tabuleiro getTabuleiro() {
@@ -52,6 +53,6 @@ public class ControladorTabuleiro {
 	}
 
 	public void prenderJogador(Jogador jogador) {
-
+		
 	}
 }

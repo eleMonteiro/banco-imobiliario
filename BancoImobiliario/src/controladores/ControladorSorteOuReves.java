@@ -8,20 +8,11 @@ import repositorios.RepositorioCartasSorteOuReves;
 
 public class ControladorSorteOuReves {
 
-	private static ControladorSorteOuReves controladorSorteOuReves = null;
 	
-	private ControladorSorteOuReves() {
+	public ControladorSorteOuReves() {
 		
 	}
-	
-	public static ControladorSorteOuReves getInstance() {
-		if( controladorSorteOuReves == null ) {
-			controladorSorteOuReves = new ControladorSorteOuReves();
-		}
 		
-		return controladorSorteOuReves;
-	}
-	
 	public CartaSorteOuReves sortearCartaSorteOuReves() {
 		List<CartaSorteOuReves> cartas = RepositorioCartasSorteOuReves.getInstance().getCartasUsadas();
 		Collections.shuffle(cartas);

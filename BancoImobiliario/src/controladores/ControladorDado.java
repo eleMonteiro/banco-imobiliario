@@ -2,11 +2,15 @@ package controladores;
 
 import modelos.Dado;
 import modelos.FaceDadosSorteado;
+import modelos.Partida;
 
 public class ControladorDado {
 
 	public FaceDadosSorteado lancarDado() {
-		return new Dado().lancar();
+		FaceDadosSorteado facesSorteadas =  new Dado().lancar();
+		facesSorteadas.setJogador(Partida.getInstance().getJogadorDaVez());
+		
+		return facesSorteadas;
 	}
 
 }
