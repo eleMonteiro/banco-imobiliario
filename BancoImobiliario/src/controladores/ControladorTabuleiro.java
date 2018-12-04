@@ -13,7 +13,6 @@ public class ControladorTabuleiro {
 
 	private Tabuleiro tabuleiro;
 
-
 	public ControladorTabuleiro(Tabuleiro tabuleiro) {
 		this.setTabuleiro(tabuleiro);
 	}
