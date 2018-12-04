@@ -3,18 +3,16 @@ package modelos;
 import java.util.ArrayList;
 import java.util.List;
 
-import repositorios.RepositorioCasasTabuleiro;
-
 public class Partida {
 
 	private Tabuleiro tabuleiro;
 	private List<Jogador> jogadores;
 	private Jogador jogadorDaVez;
 
-	public Partida(int quantidadeJogadores) {
+	public Partida(int quantidadeDeJogadores) {
 		this.setTabuleiro(new Tabuleiro());
 		this.setJogadores(new ArrayList<>());
-		this.criarJogadores(quantidadeJogadores);
+		this.criarJogadores(quantidadeDeJogadores);
 		this.setJogadorDaVez(jogadores.get(0));
 	}
 
@@ -35,9 +33,8 @@ public class Partida {
 	}
 
 	private void criarJogadores(int quantidadeDeJogadores) {
-		RepositorioCasasTabuleiro repositorioCasasTabuleiro = RepositorioCasasTabuleiro.getInstance();
 		for (int i = 0; i < quantidadeDeJogadores; i++) {
-			Jogador novoJogador = new Jogador(2458, repositorioCasasTabuleiro.getCasaTabuleiro(0));
+			Jogador novoJogador = new Jogador(2458, tabuleiro.getCasaInicial());
 			jogadores.add(novoJogador);
 		}
 	}

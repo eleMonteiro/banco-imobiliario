@@ -15,7 +15,7 @@ public class Casa {
 
 	public void inserirJogadorNaCasa(Jogador jogador) {
 		jogadores.add(jogador);
-		acao.iniciarAcao(jogador);
+//		acao.iniciarAcao(jogador);
 	}
 
 	public void removerJogadorDaCasa(Jogador jogador) {

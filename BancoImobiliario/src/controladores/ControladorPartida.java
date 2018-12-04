@@ -4,6 +4,7 @@ import java.util.List;
 
 import modelos.Jogador;
 import modelos.Partida;
+import modelos.Tabuleiro;
 
 public class ControladorPartida {
 
@@ -12,6 +13,18 @@ public class ControladorPartida {
 
 	private ControladorPartida() {
 
+	}
+
+	public Partida getPartida() {
+		return partida;
+	}
+
+	public void setPartida(Partida partida) {
+		this.partida = partida;
+	}
+	
+	public Tabuleiro getTabuleiro() {
+		return partida.getTabuleiro();
 	}
 
 	public List<Jogador> criarPartida(int quantidadeDeJogadores) {
@@ -28,7 +41,7 @@ public class ControladorPartida {
 	}
 
 	public void novaJogada(int numeroDeCasasAAndar) {
-		new ControladorTabuleiro().fazerJogadorAndar(numeroDeCasasAAndar, this.getJogadorDaVez());
+		new ControladorTabuleiro(partida.getTabuleiro()).fazerJogadorAndar(numeroDeCasasAAndar, this.getJogadorDaVez());
 	}
 
 	public static ControladorPartida getInstance() {

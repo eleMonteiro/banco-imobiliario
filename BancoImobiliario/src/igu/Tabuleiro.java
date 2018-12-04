@@ -5,7 +5,6 @@ import java.util.List;
 
 import controladores.ControladorDado;
 import controladores.ControladorPartida;
-import controladores.ControladorTabuleiro;
 import jplay.Keyboard;
 import jplay.Scene;
 import jplay.URL;
@@ -112,7 +111,8 @@ public class Tabuleiro {
 	}
 
 	private void criarCasasDoTabuleiro() {
-		List<Casa> casas = new ControladorTabuleiro().casasTabuleiro();
+		ControladorPartida controladorPartida = ControladorPartida.getInstance();
+		List<Casa> casas = controladorPartida.getTabuleiro().getCasas();
 
 		casasTabuleiro.add(new CasaTabuleiro(casas.get(0), new Coordenada(640, 0)));
 		casasTabuleiro.add(new CasaTabuleiro(casas.get(1), new Coordenada(640, 64)));

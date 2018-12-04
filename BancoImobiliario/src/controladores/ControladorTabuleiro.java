@@ -1,7 +1,5 @@
 package controladores;
 
-import java.util.List;
-
 import cartasSorteOuReves.CartaSorteOuReves;
 import modelos.Banco;
 import modelos.Casa;
@@ -15,12 +13,16 @@ public class ControladorTabuleiro {
 
 	private Tabuleiro tabuleiro;
 
-	public ControladorTabuleiro() {
-		this.tabuleiro = new Tabuleiro();
+	public ControladorTabuleiro(Tabuleiro tabuleiro) {
+		this.setTabuleiro(tabuleiro);
 	}
 
-	public List<Casa> casasTabuleiro() {
-		return tabuleiro.getCasasTabuleiro();
+	public Tabuleiro getTabuleiro() {
+		return tabuleiro;
+	}
+
+	public void setTabuleiro(Tabuleiro tabuleiro) {
+		this.tabuleiro = tabuleiro;
 	}
 
 	public void fazerJogadorAndar(int numeroDeCasasAAndar, Jogador jogador) {
