@@ -47,7 +47,7 @@ public class Tabuleiro {
 
 			if (this.teclado.keyDown(Keyboard.SPACE_KEY)) {
 				faceDadosSorteado = new ControladorDado().lancarDado();
-				novaJogada(faceDadosSorteado.getSomaFaces());
+				novaJogada(faceDadosSorteado);
 				atualizaCoordenadasPeoes();
 				mudarJogadorDaVez();
 			}
@@ -65,8 +65,8 @@ public class Tabuleiro {
 		}
 	}
 
-	private void novaJogada(int numeroDeCasasAAndar) {
-		new ControladorPartida().novaJogada(numeroDeCasasAAndar);
+	private void novaJogada(FaceDadosSorteado faceDadosSorteado) {
+		new ControladorPartida().novaJogada(faceDadosSorteado);
 	}
 
 	private void atualizaCoordenadasPeoes() {

@@ -27,6 +27,10 @@ public class FaceDadosSorteado {
 		this.faceDadoDois = faceDadoDois;
 	}
 	
+	public boolean eUmaDupla() {
+		return faceDadoUm == faceDadoDois;
+	}
+	
 	public int getSomaFaces() {
 		return this.faceDadoUm + this.faceDadoDois;
 	}
