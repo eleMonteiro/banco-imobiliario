@@ -7,8 +7,8 @@ public class Terreno extends Imovel {
 	private String cor;
 	private TabelaAluguel tabelaAluguel;
 
-	public Terreno(Dono dono, Acao acao, int valor, int valorCadaCasa, String cor, TabelaAluguel tabelaAluguel) {
-		super(dono, acao, valor);
+	public Terreno(Dono dono, int valor, int valorCadaCasa, String cor, TabelaAluguel tabelaAluguel) {
+		super(dono, valor);
 		this.quantidadeDeCasas = 0;
 		this.valorCadaCasa = valorCadaCasa;
 		this.setCor(cor);
@@ -22,19 +22,25 @@ public class Terreno extends Imovel {
 	public int getValorCadaCasa() {
 		return valorCadaCasa;
 	}
-	
+
 	public void construirUmaCasa() {
 		quantidadeDeCasas++;
 	}
 
 	@Override
 	public int getValorAluguel(int multiplicador) {
-		if( quantidadeDeCasas == 0 ) return this.tabelaAluguel.getSemCasa();
-		else if( quantidadeDeCasas == 1 ) return this.tabelaAluguel.getComUmaCasa();
-		else if( quantidadeDeCasas == 2 ) return this.tabelaAluguel.getComDuasCasas();
-		else if( quantidadeDeCasas == 3 ) return this.tabelaAluguel.getComTresCasas();
-		else if( quantidadeDeCasas == 4 ) return this.tabelaAluguel.getComQuatroCasas();
-		else return this.tabelaAluguel.getHotel();
+		if (quantidadeDeCasas == 0)
+			return this.tabelaAluguel.getSemCasa();
+		else if (quantidadeDeCasas == 1)
+			return this.tabelaAluguel.getComUmaCasa();
+		else if (quantidadeDeCasas == 2)
+			return this.tabelaAluguel.getComDuasCasas();
+		else if (quantidadeDeCasas == 3)
+			return this.tabelaAluguel.getComTresCasas();
+		else if (quantidadeDeCasas == 4)
+			return this.tabelaAluguel.getComQuatroCasas();
+		else
+			return this.tabelaAluguel.getHotel();
 	}
 
 	public String getCor() {

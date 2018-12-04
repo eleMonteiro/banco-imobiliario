@@ -8,22 +8,29 @@ public class Casa {
 	private List<Jogador> jogadores;
 	private Acao acao;
 
-	public Casa(Acao acao) {
+	public Casa() {
 		jogadores = new ArrayList<>();
-		this.acao = acao;
 	}
 
 	public void inserirJogadorNaCasa(Jogador jogador) {
 		jogadores.add(jogador);
-		System.out.println(acao.getClass());
-//		acao.iniciarAcao(jogador);
+		acao.iniciarAcao(jogador);
 	}
 
 	public void removerJogadorDaCasa(Jogador jogador) {
 		jogadores.remove(jogador);
 	}
-	
+
 	public boolean jogadorEstaNaCasa(Jogador jogador) {
 		return jogadores.contains(jogador);
 	}
+
+	public Acao getAcao() {
+		return acao;
+	}
+
+	public void setAcao(Acao acao) {
+		this.acao = acao;
+	}
+
 }

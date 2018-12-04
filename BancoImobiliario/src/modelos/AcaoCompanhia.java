@@ -7,8 +7,9 @@ public class AcaoCompanhia implements Acao {
 
 	private Companhia companhia;
 	private ControladorTabuleiro controladorTabuleiro;
-	
-	public AcaoCompanhia() {	
+
+	public AcaoCompanhia() {
+
 	}
 
 	public AcaoCompanhia(Companhia companhia) {
@@ -17,20 +18,20 @@ public class AcaoCompanhia implements Acao {
 	}
 
 	public void iniciarAcao(Jogador jogador) {
-		Dono donoTerreno = this.companhia.getDono();
+		Dono donoTerreno = companhia.getDono();
 		int escolhaJogador = 0;
-		
-		if(Banco.getInstance().equals(donoTerreno)) {
-			escolhaJogador = this.controladorTabuleiro.perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel(); 
-			
-			if( escolhaJogador == 1 ) {
+
+		if (Banco.getInstance().equals(donoTerreno)) {
+			escolhaJogador = this.controladorTabuleiro.perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel();
+
+			if (escolhaJogador == 1) {
 				this.controladorTabuleiro.comprarImovel(companhia, jogador);
-			}else {
-				this.controladorTabuleiro.pagarAluguelDeImovel(companhia, donoTerreno, 
+			} else {
+				this.controladorTabuleiro.pagarAluguelDeImovel(companhia, donoTerreno,
 						RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 			}
-		}else {
-			this.controladorTabuleiro.pagarAluguelDeImovel(companhia, donoTerreno, 
+		} else {
+			this.controladorTabuleiro.pagarAluguelDeImovel(companhia, donoTerreno,
 					RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 		}
 	}
@@ -43,4 +44,3 @@ public class AcaoCompanhia implements Acao {
 		this.companhia = companhia;
 	}
 }
-
