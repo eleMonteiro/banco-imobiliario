@@ -4,10 +4,9 @@ public class AcaoLucrosEDividendos implements Acao {
 
 	private CasaEspecialComTaxa casaEspecialComTaxa;
 
-	@Override
 	public void iniciarAcao(Jogador jogador) {
-		// TODO Auto-generated method stub
-
+		Banco.getInstance().getConta().sacar(casaEspecialComTaxa.getTaxa());
+		jogador.getConta().depositar(casaEspecialComTaxa.getTaxa());
 	}
 
 }

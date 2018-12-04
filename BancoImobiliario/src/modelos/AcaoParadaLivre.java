@@ -1,11 +1,12 @@
 package modelos;
 
+import javax.swing.JOptionPane;
+
 public class AcaoParadaLivre implements Acao {
 
-	@Override
+	
 	public void iniciarAcao(Jogador jogador) {
-		// TODO Auto-generated method stub
-
+		JOptionPane.showMessageDialog(null, "Nada aconteceu!");
 	}
 
 }

@@ -3,11 +3,14 @@ package controladores;
 import java.util.List;
 
 import cartasSorteOuReves.CartaSorteOuReves;
+import modelos.Banco;
 import modelos.Casa;
 import modelos.Dono;
+import modelos.FaceDadosSorteado;
 import modelos.Imovel;
 import modelos.Jogador;
 import modelos.Tabuleiro;
+import modelos.Terreno;
 
 public class ControladorTabuleiro {
 
@@ -38,11 +41,16 @@ public class ControladorTabuleiro {
 	}
 
 	public void comprarImovel(Imovel imovel, Dono novoDono) {
-		
+		if( Banco.getInstance().equals(imovel.getDono())) {
+			imovel.setDono(novoDono);
+		}
 	}
 
-	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador) {
-
+	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador, FaceDadosSorteado faceDadosSorteados) {
+		if(!imovel.getDono().equals(jogador)) {
+			imovel.getDono().getConta().depositar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
+			jogador.getConta().sacar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
+		}
 	}
 
 	public void prenderJogador(Jogador jogador) {

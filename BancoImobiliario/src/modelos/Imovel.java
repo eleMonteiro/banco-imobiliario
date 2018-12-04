@@ -1,6 +1,6 @@
 package modelos;
 
-public abstract class Imovel extends Casa {
+public abstract class Imovel extends Casa{
 
 	private int valor;
 	private Dono dono;
@@ -15,6 +15,14 @@ public abstract class Imovel extends Casa {
 
 	public int getValor() {
 		return valor;
+	}
+	
+	public Dono getDono() {
+		return dono;
+	}
+	
+	public void setDono(Dono dono) {
+		this.dono = dono;
 	}
 
 }

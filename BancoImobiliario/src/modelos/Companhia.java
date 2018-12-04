@@ -9,7 +9,7 @@ public class Companhia extends Imovel {
 		this.valorAluguel = valorAluguel;
 	}
 
-	@Override
+	
 	public int getValorAluguel(int multiplicador) {
 		return multiplicador * valorAluguel;
 	}
@@ -17,5 +17,4 @@ public class Companhia extends Imovel {
 	public int getValorAluguel() {
 		return valorAluguel;
 	}
-
 }

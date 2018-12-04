@@ -17,6 +17,10 @@ public class Terreno extends Imovel {
 		return quantidadeDeCasas;
 	}
 
+	public int getValorCadaCasa() {
+		return valorCadaCasa;
+	}
+	
 	public void construirUmaCasa() {
 		quantidadeDeCasas++;
 	}

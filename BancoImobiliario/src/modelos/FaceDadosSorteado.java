@@ -26,4 +26,8 @@ public class FaceDadosSorteado {
 		this.faceDadoDois = faceDadoDois;
 	}
 	
+	public int getSomaFaces() {
+		return this.faceDadoUm + this.faceDadoDois;
+	}
+
 }
