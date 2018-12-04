@@ -10,26 +10,25 @@ import modelos.FaceDadosSorteado;
 import modelos.Imovel;
 import modelos.Jogador;
 import modelos.Tabuleiro;
-import modelos.Terreno;
 
 public class ControladorTabuleiro {
 
 	private Tabuleiro tabuleiro;
 
 	public ControladorTabuleiro() {
-		this.tabuleiro = Tabuleiro.getInstance();
-	}
-
-	public void novaJogada() {
-
+		this.tabuleiro = new Tabuleiro();
 	}
 
 	public List<Casa> casasTabuleiro() {
 		return tabuleiro.getCasasTabuleiro();
 	}
 
-	public void fazerJogadorAndar(int numeroDeCasas, Jogador jogador) {
-
+	public void fazerJogadorAndar(int numeroDeCasasAAndar, Jogador jogador) {
+		Casa casaAtual = jogador.getCasaAtual();
+		Casa novaCasa = this.tabuleiro.getCasaComSalto(casaAtual, numeroDeCasasAAndar);
+		casaAtual.removerJogadorDaCasa(jogador);
+		novaCasa.inserirJogadorNaCasa(jogador);
+		jogador.setCasaAtual(novaCasa);
 	}
 
 	public CartaSorteOuReves sortearCartaSorteOuReves() {
@@ -41,13 +40,13 @@ public class ControladorTabuleiro {
 	}
 
 	public void comprarImovel(Imovel imovel, Dono novoDono) {
-		if( Banco.getInstance().equals(imovel.getDono())) {
+		if (Banco.getInstance().equals(imovel.getDono())) {
 			imovel.setDono(novoDono);
 		}
 	}
 
 	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador, FaceDadosSorteado faceDadosSorteados) {
-		if(!imovel.getDono().equals(jogador)) {
+		if (!imovel.getDono().equals(jogador)) {
 			imovel.getDono().getConta().depositar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
 			jogador.getConta().sacar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
 		}

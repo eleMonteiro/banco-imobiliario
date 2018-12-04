@@ -3,6 +3,7 @@ package igu;
 import java.util.ArrayList;
 import java.util.List;
 
+import controladores.ControladorDado;
 import controladores.ControladorPartida;
 import controladores.ControladorTabuleiro;
 import jplay.Keyboard;
@@ -28,32 +29,84 @@ public class Tabuleiro {
 		this.cena = new Scene();
 		this.cena.loadFromFile(URL.scenario("Tabuleiro.scn"));
 		this.dadoDuplo = new DadoDuplo();
-//		this.criarPartida(quantidadeDeJogadores);
-//		this.criarCasasDoTabuleiro();
+		this.peoes = new ArrayList<>();
+		this.casasTabuleiro = new ArrayList<>();
+
+		this.criarPartida(quantidadeDeJogadores);
+		this.criarCasasDoTabuleiro();
 		this.iniciar();
 	}
 
 	public void iniciar() {
+		FaceDadosSorteado faceDadosSorteado = new ControladorDado().lancarDado();
+
 		while (true) {
 			cena.draw();
-			this.dadoDuplo.setValorDadoDireita(1);
-			this.dadoDuplo.setValorDadoEsquerda(1);
+			mostrarDados(faceDadosSorteado.getFaceDadoDois(), faceDadosSorteado.getFaceDadoUm());
+			mostrarPeoes();
 			janela.update();
 
 			if (this.teclado.keyDown(Keyboard.SPACE_KEY)) {
-//				FaceDadosSorteado faceDadosSorteado = new ControladorDado().sortearDados();
-//				this.dadoDuplo.setValorDadoEsquerda(faceDadosSorteado.getFaceDadoUm());
-//				this.dadoDuplo.setValorDadoDireita(faceDadosSorteado.getFaceDadoDois());
+				faceDadosSorteado = new ControladorDado().lancarDado();
+				novaJogada(faceDadosSorteado.getSomaFaces());
+				atualizaCoordenadasPeoes();
+				mudarJogadorDaVez();
 			}
 		}
 	}
 
+	private void mostrarDados(int dadoDireita, int dadoEsquerda) {
+		this.dadoDuplo.setValorDadoDireita(dadoDireita);
+		this.dadoDuplo.setValorDadoEsquerda(dadoEsquerda);
+	}
+
+	private void mostrarPeoes() {
+		for (Peao peao : peoes) {
+			peao.moverParaCoordenada();
+		}
+	}
+
+	private void novaJogada(int numeroDeCasasAAndar) {
+		ControladorPartida.getInstance().novaJogada(numeroDeCasasAAndar);
+	}
+
+	private void atualizaCoordenadasPeoes() {
+		Jogador jogadorDaVez = ControladorPartida.getInstance().getJogadorDaVez();
+		CasaTabuleiro casaTabuleiro = procuraCasaDoTabuleiro(jogadorDaVez.getCasaAtual());
+		Peao peao = procurarPeaoDoJogador(jogadorDaVez);
+		peao.setCoordenada(casaTabuleiro.getCoordenada());
+	}
+
+	private void mudarJogadorDaVez() {
+		ControladorPartida.getInstance().mudarJogadorDaVez();
+	}
+
+	private Peao procurarPeaoDoJogador(Jogador jogador) {
+		for (Peao peao : peoes) {
+			if (jogador == peao.getJogador()) {
+				return peao;
+			}
+		}
+
+		return null;
+	}
+
+	private CasaTabuleiro procuraCasaDoTabuleiro(Casa casa) {
+		for (CasaTabuleiro casaTabuleiro : casasTabuleiro) {
+			if (casa == casaTabuleiro.getCasa()) {
+				return casaTabuleiro;
+			}
+		}
+
+		return null;
+	}
+
 	private void criarPartida(int quantidadeDeJogadores) {
-		List<Jogador> jogadores = new ControladorPartida().criarPartida(quantidadeDeJogadores);
+		List<Jogador> jogadores = ControladorPartida.getInstance().criarPartida(quantidadeDeJogadores);
 
 		int spritePeao = 1;
 		for (Jogador jogador : jogadores) {
-			peoes.add(new Peao("0" + spritePeao + ".png", jogador, new Coordenada(640, 0)));
+			peoes.add(new Peao("pino-" + spritePeao + ".png", jogador, new Coordenada(640, 0)));
 			spritePeao++;
 		}
 	}

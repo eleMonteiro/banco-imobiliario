@@ -1,24 +1,20 @@
 package modelos;
 
-public class Jogador extends Dono{
+public class Jogador extends Dono {
 
-	private boolean estaPreso;
 	private Casa casaAtual;
-		
-	public Jogador(int saldo) {
+
+	public Jogador(int saldo, Casa casaAtual) {
 		super(saldo);
-		this.estaPreso = false;
+		this.setCasaAtual(casaAtual);
 	}
-	
-	public void definirCasaAtual(Casa casaAtual) {
-		this.casaAtual = casaAtual;
-	}
-	
+
 	public Casa getCasaAtual() {
 		return casaAtual;
 	}
-		
-	public boolean estaPreso() {
-		return estaPreso;
-	}	
+
+	public void setCasaAtual(Casa casaAtual) {
+		this.casaAtual = casaAtual;
+	}
+
 }

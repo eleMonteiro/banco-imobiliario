@@ -7,19 +7,36 @@ import modelos.Partida;
 
 public class ControladorPartida {
 
-	private Partida partida = null;
+	private static ControladorPartida controladorPartida = null;
+	private Partida partida;
 
-	public ControladorPartida() {
+	private ControladorPartida() {
 
 	}
 
-	public List<Jogador> criarPartida(int quantidadeJogadores) {
-		this.partida = Partida.getInstance(quantidadeJogadores);
-		return this.partida.listaJogadores();
+	public List<Jogador> criarPartida(int quantidadeDeJogadores) {
+		partida = new Partida(quantidadeDeJogadores);
+		return partida.getJogadores();
 	}
 
-	public Jogador jogadorDaVez() {
-		return this.partida.jogadorDaVez();
+	public Jogador getJogadorDaVez() {
+		return partida.getJogadorDaVez();
+	}
+
+	public void mudarJogadorDaVez() {
+		partida.mudarJogadorDaVez();
+	}
+
+	public void novaJogada(int numeroDeCasasAAndar) {
+		new ControladorTabuleiro().fazerJogadorAndar(numeroDeCasasAAndar, this.getJogadorDaVez());
+	}
+
+	public static ControladorPartida getInstance() {
+		if (controladorPartida == null) {
+			controladorPartida = new ControladorPartida();
+		}
+
+		return controladorPartida;
 	}
 
 }

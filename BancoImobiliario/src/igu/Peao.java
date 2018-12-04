@@ -1,6 +1,7 @@
 package igu;
 
 import jplay.Sprite;
+import jplay.URL;
 import modelos.Jogador;
 
 public class Peao extends Sprite {
@@ -9,7 +10,7 @@ public class Peao extends Sprite {
 	private Coordenada coordenada;
 
 	public Peao(String nomeDoArquivoDoPeao, Jogador jogador, Coordenada coordenada) {
-		super(nomeDoArquivoDoPeao);
+		super(URL.sprite(nomeDoArquivoDoPeao));
 		this.setJogador(jogador);
 		this.setCoordenada(coordenada);
 	}
@@ -28,10 +29,13 @@ public class Peao extends Sprite {
 
 	public void setCoordenada(Coordenada coordenada) {
 		this.coordenada = coordenada;
+		this.x = coordenada.getX();
+		this.y = coordenada.getY();
 	}
 
 	public void moverParaCoordenada() {
-		moveTo(coordenada.getX(), coordenada.getY(), 0.5);
+		this.draw();
+		this.moveTo(coordenada.getX(), coordenada.getY(), 0.5);
 	}
 
 }
