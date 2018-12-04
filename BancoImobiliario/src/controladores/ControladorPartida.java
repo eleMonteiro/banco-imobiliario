@@ -28,7 +28,7 @@ public class ControladorPartida {
 	}
 
 	public void novaJogada(int numeroDeCasasAAndar) {
-		new ControladorTabuleiro().fazerJogadorAndar(numeroDeCasasAAndar, this.getJogadorDaVez());
+		ControladorTabuleiro.getInstance().fazerJogadorAndar(numeroDeCasasAAndar, this.getJogadorDaVez());
 	}
 
 	public static ControladorPartida getInstance() {

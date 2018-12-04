@@ -14,8 +14,9 @@ import modelos.Tabuleiro;
 public class ControladorTabuleiro {
 
 	private Tabuleiro tabuleiro;
-
-	public ControladorTabuleiro() {
+	private static ControladorTabuleiro controladorTabuleiro = null;
+	
+	private ControladorTabuleiro() {
 		this.tabuleiro = new Tabuleiro();
 	}
 
@@ -31,10 +32,6 @@ public class ControladorTabuleiro {
 		jogador.setCasaAtual(novaCasa);
 	}
 
-	public CartaSorteOuReves sortearCartaSorteOuReves() {
-		return null;
-	}
-
 	public int perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel() {
 		return 0;
 	}
@@ -45,7 +42,7 @@ public class ControladorTabuleiro {
 		}
 	}
 
-	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador, FaceDadosSorteado faceDadosSorteados) {
+	public void pagarAluguelDeImovel(Imovel imovel, Dono jogador, FaceDadosSorteado faceDadosSorteados) {
 		if (!imovel.getDono().equals(jogador)) {
 			imovel.getDono().getConta().depositar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
 			jogador.getConta().sacar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
@@ -54,5 +51,13 @@ public class ControladorTabuleiro {
 
 	public void prenderJogador(Jogador jogador) {
 
+	}
+	
+	public static ControladorTabuleiro getInstance() {
+		if( controladorTabuleiro == null) {
+			controladorTabuleiro = new ControladorTabuleiro();
+		}
+		
+		return controladorTabuleiro;
 	}
 }
