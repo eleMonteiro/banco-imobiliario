@@ -1,8 +1,11 @@
 package modelos;
 
+import cartasSorteOuReves.CartaSorteOuReves;
+
 public class Jogador extends Dono {
 
 	private Casa casaAtual;
+	private CartaSorteOuReves cartaLiberarDaPrisao;
 	private boolean estaPreso;
 
 	public Jogador(int saldo, Casa casaAtual) {
@@ -25,6 +28,14 @@ public class Jogador extends Dono {
 
 	public void setEstaPreso(boolean estaPreso) {
 		this.estaPreso = estaPreso;
+	}
+
+	public CartaSorteOuReves getCartaLiberarDaPrisao() {
+		return cartaLiberarDaPrisao;
+	}
+
+	public void setCartaLiberarDaPrisao(CartaSorteOuReves cartaLiberarDaPrisao) {
+		this.cartaLiberarDaPrisao = cartaLiberarDaPrisao;
 	}
 
 }

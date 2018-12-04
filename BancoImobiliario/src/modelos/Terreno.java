@@ -4,12 +4,14 @@ public class Terreno extends Imovel {
 
 	private int quantidadeDeCasas;
 	private int valorCadaCasa;
+	private String cor;
 	private TabelaAluguel tabelaAluguel;
 
-	public Terreno(Dono dono, Acao acao, int valor, int valorCadaCasa, TabelaAluguel tabelaAluguel) {
+	public Terreno(Dono dono, Acao acao, int valor, int valorCadaCasa, String cor, TabelaAluguel tabelaAluguel) {
 		super(dono, acao, valor);
 		this.quantidadeDeCasas = 0;
 		this.valorCadaCasa = valorCadaCasa;
+		this.setCor(cor);
 		this.tabelaAluguel = tabelaAluguel;
 	}
 
@@ -33,5 +35,13 @@ public class Terreno extends Imovel {
 		else if( quantidadeDeCasas == 3 ) return this.tabelaAluguel.getComTresCasas();
 		else if( quantidadeDeCasas == 4 ) return this.tabelaAluguel.getComQuatroCasas();
 		else return this.tabelaAluguel.getHotel();
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
 	}
 }

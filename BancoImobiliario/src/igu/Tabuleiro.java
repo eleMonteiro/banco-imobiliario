@@ -47,7 +47,7 @@ public class Tabuleiro {
 
 			if (this.teclado.keyDown(Keyboard.SPACE_KEY)) {
 				faceDadosSorteado = new ControladorDado().lancarDado();
-				novaJogada(faceDadosSorteado.getSomaFaces());
+				novaJogada(faceDadosSorteado);
 				atualizaCoordenadasPeoes();
 				mudarJogadorDaVez();
 			}
