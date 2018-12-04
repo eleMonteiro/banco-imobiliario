@@ -4,7 +4,7 @@ public class FaceDadosSorteado {
 
 	private int faceDadoUm;
 	private int faceDadoDois;
-
+	private Jogador jogador;
 	
 	public FaceDadosSorteado(int faceDadoUm, int faceDadoDois) {
 		this.faceDadoUm = faceDadoUm;
@@ -33,6 +33,14 @@ public class FaceDadosSorteado {
 	
 	public int getSomaFaces() {
 		return this.faceDadoUm + this.faceDadoDois;
+	}
+
+	public Jogador getJogador() {
+		return jogador;
+	}
+
+	public void setJogador(Jogador jogador) {
+		this.jogador = jogador;
 	}
 
 }

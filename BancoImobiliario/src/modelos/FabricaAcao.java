@@ -20,7 +20,7 @@ public class FabricaAcao {
 	public Acao criarNovaAcao(String tipoDaAcao) {
 		
 		if(tipoDaAcao.equals("AcaoImovel")) {
-			return new AcaoImovel();
+			return new AcaoTerreno();
 		}else if(tipoDaAcao.equals("AcaoImpostoDeRenda")) {
 			return new AcaoImpostoDeRenda();
 		}else if(tipoDaAcao.equals("AcaoLucrosEDividendos")) {

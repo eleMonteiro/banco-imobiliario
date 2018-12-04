@@ -92,7 +92,7 @@ public class Tabuleiro {
 				new TabelaAluguel(14, 70, 200, 550, 750, 950)));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoImovel(), 180, 100, "Violeta",
 				new TabelaAluguel(14, 70, 200, 550, 750, 950)));
-		this.casas.add(new Companhia(Banco.getInstance(), new AcaoImovel(), 150, 40));
+		this.casas.add(new Companhia(Banco.getInstance(), new AcaoTerreno(), 150, 40));
 		this.casas.add(new CasaEspecial(new AcaoSorteOuReves()));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoImovel(), 350, 200, "Laranja",
 				new TabelaAluguel(35, 175, 500, 1100, 1300, 1500)));

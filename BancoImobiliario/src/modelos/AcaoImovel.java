@@ -19,16 +19,16 @@ public class AcaoImovel implements Acao {
 		int escolhaJogador = 0;
 
 		if (Banco.getInstance().equals(donoTerreno)) {
-			escolhaJogador = ControladorTabuleiro.getInstance().perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel();
+			escolhaJogador = new ControladorTabuleiro().perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel();
 
 			if (escolhaJogador == 1) {
-				ControladorTabuleiro.getInstance().comprarImovel(terreno, jogador);
+				new ControladorTabuleiro().comprarImovel(terreno, jogador);
 			} else {
-				ControladorTabuleiro.getInstance().pagarAluguelDeImovel(terreno, donoTerreno,
+				new ControladorTabuleiro().pagarAluguelDeImovel(terreno, donoTerreno,
 						RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 			}
 		} else {
-			ControladorTabuleiro.getInstance().pagarAluguelDeImovel(terreno, jogador,
+			new ControladorTabuleiro().pagarAluguelDeImovel(terreno, jogador,
 					RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 		}
 	}
