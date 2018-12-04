@@ -1,7 +1,6 @@
 package repositorios;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import cartasSorteOuReves.CartaSorteOuReves;
@@ -15,6 +14,7 @@ public class RepositorioCartasSorteOuReves {
 	private RepositorioCartasSorteOuReves() {
 		this.cartasUsadas = new ArrayList<CartaSorteOuReves>();
 		this.cartasNaoUsadas = new ArrayList<CartaSorteOuReves>();
+		this.adicionarCartasSorteOuReves();
 	}
 	
 	public static RepositorioCartasSorteOuReves getInstance() {
@@ -24,17 +24,6 @@ public class RepositorioCartasSorteOuReves {
 		return repositorio;
 	}
 	
-	public CartaSorteOuReves getCarta(int indice) {
-        //Embaralha as cartas
-		Collections.shuffle(cartasNaoUsadas);
-        CartaSorteOuReves cartaSorteada = cartasNaoUsadas.get(0);
-        
-        this.cartasUsadas.add(cartaSorteada);
-        this.cartasNaoUsadas.remove(cartaSorteada);
-        
-        return cartaSorteada;
-	}
-
 	public List<CartaSorteOuReves> getCartasUsadas() {
 		return cartasUsadas;
 	}
@@ -77,9 +66,9 @@ public class RepositorioCartasSorteOuReves {
 		this.cartasNaoUsadas.add(new CartaSorteOuReves("Inesperadamente você recebeu uma herança que já estava esquecida.", 100));
 		this.cartasNaoUsadas.add(new CartaSorteOuReves("Você apostou com os parceiros deste jogo e ganhou.", 50));
 		this.cartasNaoUsadas.add(new CartaSorteOuReves("Saida livre da prisão. (Conserve este cartão para quando lhe for preciso ou negocie-o em qualquer ocasião, por preço a combinar).", 1));
-//		this.cartasNaoUsadas.add(new CartaSorteOuReves("VocÊ est", ));
-		
-		
-		
+		this.cartasNaoUsadas.add(new CartaSorteOuReves("Você está com sorte. Suas ações na Bolsa de Valores estão em alta.", 200));
+		this.cartasNaoUsadas.add(new CartaSorteOuReves("Renove a tempo a licença do seu automóvel.", -30));
+		this.cartasNaoUsadas.add(new CartaSorteOuReves("Você acaba de receber uma parcela do seu 13º salário.", 50));
+		this.cartasNaoUsadas.add(new CartaSorteOuReves("Você tirou o primeiro lugar no Torneio de Tênis do seu clube. Parabéns!", 100));
 	}
 }

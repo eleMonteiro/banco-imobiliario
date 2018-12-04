@@ -4,6 +4,7 @@ public class FaceDadosSorteado {
 
 	private int faceDadoUm;
 	private int faceDadoDois;
+
 	
 	public FaceDadosSorteado(int faceDadoUm, int faceDadoDois) {
 		this.faceDadoUm = faceDadoUm;

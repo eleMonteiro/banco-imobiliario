@@ -1,10 +1,20 @@
 package modelos;
 
+import cartasSorteOuReves.CartaSorteOuReves;
+import controladores.ControladorSorteOuReves;
+
 public class AcaoSorteOuReves implements Acao {
 
-	@Override
+	public AcaoSorteOuReves() {
+	}
+	
 	public void iniciarAcao(Jogador jogador) {
-		// TODO Auto-generated method stub
+		CartaSorteOuReves carta = ControladorSorteOuReves.getInstance().sortearCartaSorteOuReves();
+		
+		if( carta.getTaxa() < 0 ) {
+			jogador.getConta().sacar(carta.getTaxa());
+			Banco.getInstance().getConta().depositar(carta.getTaxa());
+		}
 		
 	}
 

@@ -13,6 +13,7 @@ public class ControladorTabuleiro {
 
 	private Tabuleiro tabuleiro;
 
+
 	public ControladorTabuleiro(Tabuleiro tabuleiro) {
 		this.setTabuleiro(tabuleiro);
 	}
@@ -33,10 +34,6 @@ public class ControladorTabuleiro {
 		jogador.setCasaAtual(novaCasa);
 	}
 
-	public CartaSorteOuReves sortearCartaSorteOuReves() {
-		return null;
-	}
-
 	public int perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel() {
 		return 0;
 	}
@@ -47,7 +44,7 @@ public class ControladorTabuleiro {
 		}
 	}
 
-	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador, FaceDadosSorteado faceDadosSorteados) {
+	public void pagarAluguelDeImovel(Imovel imovel, Dono jogador, FaceDadosSorteado faceDadosSorteados) {
 		if (!imovel.getDono().equals(jogador)) {
 			imovel.getDono().getConta().depositar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
 			jogador.getConta().sacar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
