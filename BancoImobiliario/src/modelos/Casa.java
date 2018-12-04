@@ -14,6 +14,7 @@ public class Casa {
 
 	public void inserirJogadorNaCasa(Jogador jogador) {
 		jogadores.add(jogador);
+		jogador.setCasaAtual(this);
 		acao.iniciarAcao(jogador);
 	}
 

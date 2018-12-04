@@ -71,7 +71,7 @@ public class Tabuleiro {
 		
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 100, 50, "Lilas",
 				new TabelaAluguel(6, 30, 90, 270, 400, 500)));
-		this.casas.add(new CasaEspecial(new AcaoSorteOuReves()));
+		this.casas.add(new CasaEspecial(new AcaoCasaSorteOuReves()));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 60, 50, "Lilas",
 				new TabelaAluguel(2, 10, 30, 90, 160, 250)));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 60, 50, "Lilas",
@@ -91,13 +91,13 @@ public class Tabuleiro {
 
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 200, 100, "Violeta",
 				new TabelaAluguel(16, 80, 220, 600, 800, 1000)));
-		this.casas.add(new CasaEspecial(new AcaoSorteOuReves()));
+		this.casas.add(new CasaEspecial(new AcaoCasaSorteOuReves()));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 180, 100, "Violeta",
 				new TabelaAluguel(14, 70, 200, 550, 750, 950)));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 180, 100, "Violeta",
 				new TabelaAluguel(14, 70, 200, 550, 750, 950)));
 		this.casas.add(new Companhia(Banco.getInstance(), new AcaoCompanhia(), 150, 40));
-		this.casas.add(new CasaEspecial(new AcaoSorteOuReves()));
+		this.casas.add(new CasaEspecial(new AcaoCasaSorteOuReves()));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 350, 200, "Laranja",
 				new TabelaAluguel(35, 175, 500, 1100, 1300, 1500)));
 		this.casas.add(new CasaEspecialComTaxa(new AcaoLucrosEDividendos(), 200));
@@ -107,14 +107,14 @@ public class Tabuleiro {
 
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 120, 50, "Vermelho",
 				new TabelaAluguel(8, 40, 100, 300, 450, 600)));
-		this.casas.add(new CasaEspecial(new AcaoSorteOuReves()));
+		this.casas.add(new CasaEspecial(new AcaoCasaSorteOuReves()));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 100, 50, "Vermelho",
 				new TabelaAluguel(6, 30, 90, 270, 400, 500)));
 		this.casas.add(new CasaEspecialComTaxa(new AcaoImpostoDeRenda(), 200));
 		this.casas.add(new Companhia(Banco.getInstance(), new AcaoCompanhia(), 200, 40));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 160, 100, "Amarelo",
 				new TabelaAluguel(12, 60, 180, 500, 700, 900)));
-		this.casas.add(new CasaEspecial(new AcaoSorteOuReves()));
+		this.casas.add(new CasaEspecial(new AcaoCasaSorteOuReves()));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 140, 100, "Amarelo",
 				new TabelaAluguel(10, 50, 150, 450, 625, 750)));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 140, 100, "Amarelo",
@@ -131,7 +131,7 @@ public class Tabuleiro {
 		this.casas.add(new Companhia(Banco.getInstance(), new AcaoCompanhia(), 200, 50));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 300, 200, "Verde",
 				new TabelaAluguel(26, 130, 390, 900, 1100, 1275)));
-		this.casas.add(new CasaEspecial(new AcaoSorteOuReves()));
+		this.casas.add(new CasaEspecial(new AcaoCasaSorteOuReves()));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 280, 150, "Azul Escuro",
 				new TabelaAluguel(24, 120, 360, 850, 1025, 1200)));
 		this.casas.add(new Terreno(Banco.getInstance(), new AcaoTerreno(), 260, 150, "Azul Escuro",
