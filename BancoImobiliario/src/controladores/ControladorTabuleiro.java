@@ -38,7 +38,7 @@ public class ControladorTabuleiro {
 	}
 
 	public void comprarImovel(Imovel imovel, Dono novoDono) {
-
+		
 	}
 
 	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador) {

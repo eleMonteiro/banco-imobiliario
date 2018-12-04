@@ -1,5 +1,6 @@
 package igu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import controladores.ControladorPartida;
@@ -27,6 +28,9 @@ public class Tabuleiro {
 		this.cena = new Scene();
 		this.cena.loadFromFile(URL.scenario("Tabuleiro.scn"));
 		this.dadoDuplo = new DadoDuplo();
+		
+		this.peoes = new ArrayList<>();
+		this.casasTabuleiro = new ArrayList<>();
 		this.criarPartida(quantidadeDeJogadores);
 		this.criarCasasDoTabuleiro();
 		this.iniciar();
@@ -50,7 +54,7 @@ public class Tabuleiro {
 
 		int spritePeao = 1;
 		for (Jogador jogador : jogadores) {
-			peoes.add(new Peao(spritePeao + ".png", jogador, new Coordenada(640, 0)));
+			peoes.add(new Peao("0"+spritePeao + ".png", jogador, new Coordenada(640, 0)));
 			spritePeao++;
 		}
 	}
