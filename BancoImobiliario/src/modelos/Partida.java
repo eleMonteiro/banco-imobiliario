@@ -1,5 +1,6 @@
 package modelos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Partida {
@@ -9,6 +10,7 @@ public class Partida {
 	private Jogador jogadorDaVez;
 	
 	private Partida(int quantidadeJogadores) {
+		this.jogadores = new ArrayList<>();
 		this.adicionarJogadores(quantidadeJogadores);
 	}
 	
