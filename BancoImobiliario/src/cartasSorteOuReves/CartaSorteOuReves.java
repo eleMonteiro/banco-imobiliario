@@ -1,16 +1,19 @@
 package cartasSorteOuReves;
 
+import modelos.Acao;
+
 public class CartaSorteOuReves {
 
 	private String nome;
 	private String descricao;
-	private int taxa;
-	
-	public CartaSorteOuReves(String nome, String descricao, int taxa) {
+	private Acao acao;
+
+	public CartaSorteOuReves(String nome, String descricao) {
+		super();
+		this.nome = nome;
 		this.descricao = descricao;
-		this.taxa = taxa;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -18,7 +21,7 @@ public class CartaSorteOuReves {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public String getDescricao() {
 		return descricao;
 	}
@@ -27,11 +30,12 @@ public class CartaSorteOuReves {
 		this.descricao = descricao;
 	}
 
-	public int getTaxa() {
-		return taxa;
+	public Acao getAcao() {
+		return acao;
 	}
 
-	public void setTaxa(int taxa) {
-		this.taxa = taxa;
-	}	
+	public void setAcao(Acao acao) {
+		this.acao = acao;
+	}
+
 }

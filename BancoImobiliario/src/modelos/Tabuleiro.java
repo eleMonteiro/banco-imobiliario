@@ -71,7 +71,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoLilas1);
 		
 		CasaEspecial sorteOuReves1 = new CasaEspecial();
-		sorteOuReves1.setAcao(new AcaoSorteOuReves());
+		sorteOuReves1.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves1);
 		
 		Terreno terrenoLilas2 = new Terreno(Banco.getInstance(), 60, 50, "Lilas",
@@ -118,7 +118,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoVioleta1);
 
 		CasaEspecial sorteOuReves2 = new CasaEspecial();
-		sorteOuReves2.setAcao(new AcaoSorteOuReves());
+		sorteOuReves2.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves2);
 		
 		Terreno terrenoVioleta2 = new Terreno(Banco.getInstance(), 180, 100, "Violeta",
@@ -136,7 +136,7 @@ public class Tabuleiro {
 		this.casas.add(companhia3);
 		
 		CasaEspecial sorteOuReves3 = new CasaEspecial();
-		sorteOuReves3.setAcao(new AcaoSorteOuReves());
+		sorteOuReves3.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves3);
 		
 		Terreno terrenoLaranja1 = new Terreno(Banco.getInstance(), 350, 200, "Laranja",
@@ -163,7 +163,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoVermelho1);
 		
 		CasaEspecial sorteOuReves4 = new CasaEspecial();
-		sorteOuReves4.setAcao(new AcaoSorteOuReves());
+		sorteOuReves4.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves4);
 		
 		Terreno terrenoVermelho2 = new Terreno(Banco.getInstance(), 100, 50, "Vermelho",
@@ -186,7 +186,7 @@ public class Tabuleiro {
 		
 		
 		CasaEspecial sorteOuReves5 = new CasaEspecial();
-		sorteOuReves5.setAcao(new AcaoSorteOuReves());
+		sorteOuReves5.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves5);
 		
 		Terreno terrenoAmarelo2 = new Terreno(Banco.getInstance(), 140, 100, "Amarelo",
@@ -232,7 +232,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoVerde4);
 		
 		CasaEspecial casaEspecial4 = new CasaEspecial();
-		casaEspecial4.setAcao(new AcaoSorteOuReves());
+		casaEspecial4.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(casaEspecial4);
 		
 		Terreno terrenoAzulEs1 = new Terreno(Banco.getInstance(), 280, 150, "Azul Escuro",
@@ -244,6 +244,7 @@ public class Tabuleiro {
 				new TabelaAluguel(22, 110, 330, 800, 975, 1150));
 		terrenoAzulEs2.setAcao(new AcaoTerreno(terrenoAzulEs2));
 		this.casas.add(terrenoAzulEs2);
+
 	}
 
 }
