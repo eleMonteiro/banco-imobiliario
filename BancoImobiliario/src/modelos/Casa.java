@@ -32,5 +32,4 @@ public class Casa {
 	public void setAcao(Acao acao) {
 		this.acao = acao;
 	}
-
 }

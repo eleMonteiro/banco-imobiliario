@@ -4,8 +4,7 @@ public class CasaEspecialComTaxa extends Casa {
 
 	private int taxa;
 
-	public CasaEspecialComTaxa(Acao acao, int taxa) {
-		super(acao);
+	public CasaEspecialComTaxa(int taxa) {
 		this.taxa = taxa;
 	}
 

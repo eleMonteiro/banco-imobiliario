@@ -16,16 +16,16 @@ public class AcaoTerreno implements Acao {
 		int escolhaJogador = 0;
 
 		if (Banco.getInstance().equals(donoTerreno)) {
-			escolhaJogador = this.controladorTabuleiro.perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel();
+			escolhaJogador = new ControladorTabuleiro().perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel();
 
 			if (escolhaJogador == 1) {
-				this.controladorTabuleiro.comprarImovel(terreno, jogador);
+				new ControladorTabuleiro().comprarImovel(terreno, jogador);
 			} else {
-				this.controladorTabuleiro.pagarAluguelDeImovel(terreno, donoTerreno,
+				new ControladorTabuleiro().pagarAluguelDeImovel(terreno, donoTerreno,
 						RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 			}
 		} else {
-			this.controladorTabuleiro.pagarAluguelDeImovel(terreno, donoTerreno,
+			new ControladorTabuleiro().pagarAluguelDeImovel(terreno, donoTerreno,
 					RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 		}
 	}

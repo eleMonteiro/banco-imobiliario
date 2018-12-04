@@ -4,8 +4,8 @@ public class Companhia extends Imovel {
 
 	private int valorAluguel;
 
-	public Companhia(Dono dono, Acao acao, int valor, int valorAluguel) {
-		super(dono, acao, valor);
+	public Companhia(Dono dono, int valor, int valorAluguel) {
+		super(dono, valor);
 		this.valorAluguel = valorAluguel;
 	}
 
