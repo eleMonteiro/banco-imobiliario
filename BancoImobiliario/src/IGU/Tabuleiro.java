@@ -51,6 +51,7 @@ public class Tabuleiro {
 				faceDadosSorteado = new ControladorDado().lancarDado();
 				mostrarDados(faceDadosSorteado.getFaceDadoDois(), faceDadosSorteado.getFaceDadoUm());
 
+				cena.draw();
 				
 				novaJogada(faceDadosSorteado);
 				atualizaCoordenadasPeoes();
