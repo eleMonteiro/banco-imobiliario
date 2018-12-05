@@ -33,8 +33,8 @@ public class MenuInicial {
 
 	private int getQuantidadeDeJogadores() {
 		Object[] opcoes = { 2, 3, 4, 5, 6 };
-		int quantidadeDeJogadores = (int) JOptionPane.showInputDialog(null, "Selecione o número de jogadores",
-				"Atenção", JOptionPane.PLAIN_MESSAGE, null, opcoes, null);
+		int quantidadeDeJogadores = (int) JOptionPane.showInputDialog(null, "Selecione o numero de jogadores",
+				"Atencao", JOptionPane.PLAIN_MESSAGE, null, opcoes, null);
 
 		return quantidadeDeJogadores;
 	}

@@ -1,58 +1,54 @@
 package controladores;
 
-import modelos.Banco;
-import modelos.Casa;
-import modelos.Dono;
-import modelos.FaceDadosSorteado;
-import modelos.Imovel;
+import dado.FaceDadosSorteado;
+import dono.Dono;
+import excecoes.SaldoInsufucienteException;
+import igu.ComponentesGraficos;
 import modelos.Jogador;
-import modelos.Tabuleiro;
+import modelos.Partida;
+import tabuleiro.Tabuleiro;
+import tabuleiro.casas.Casa;
+import tabuleiro.casas.Imovel;
 
 public class ControladorTabuleiro {
 
-	private Tabuleiro tabuleiro;
-
-	public ControladorTabuleiro(Tabuleiro tabuleiro) {
-		this.setTabuleiro(tabuleiro);
-	}
-	
-	public ControladorTabuleiro() {
-	}
-
-	public Tabuleiro getTabuleiro() {
-		return tabuleiro;
-	}
-
-	public void setTabuleiro(Tabuleiro tabuleiro) {
-		this.tabuleiro = tabuleiro;
-	}
-
 	public void fazerJogadorAndar(int numeroDeCasasAAndar, Jogador jogador) {
+		Tabuleiro tabuleiro = Partida.getInstance().getTabuleiro();
+
 		Casa casaAtual = jogador.getCasaAtual();
-		Casa novaCasa = this.tabuleiro.getCasaComSalto(casaAtual, numeroDeCasasAAndar);
+		Casa novaCasa = tabuleiro.getCasaComSalto(casaAtual, numeroDeCasasAAndar);
 		casaAtual.removerJogadorDaCasa(jogador);
 		novaCasa.inserirJogadorNaCasa(jogador);
-		jogador.setCasaAtual(novaCasa);
 	}
 
 	public int perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel() {
-		return 0;
+		return new ComponentesGraficos().perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel();
 	}
 
-	public void comprarImovel(Imovel imovel, Dono novoDono) {
-		if (Banco.getInstance().equals(imovel.getDono())) {
+	public void comprarImovel(Imovel imovel, Dono novoDono) throws SaldoInsufucienteException {
+			Dono donoImovel = imovel.getDono();
+			donoImovel.getConta().depositar(imovel.getValor());
+			novoDono.getConta().sacar(imovel.getValor());
 			imovel.setDono(novoDono);
+
+			ControladorElementosGraficos controladorElementosGraficos = ControladorElementosGraficos.getInstance();
+			controladorElementosGraficos.getiPainelDeMensagensDoJogo()
+					.mostrarMensagem("VOCE COMPROU UM IMOVEL. SALDO: " + novoDono.getConta().getSaldo());
+	}
+
+	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador, FaceDadosSorteado faceDadosSorteados) {
+		try {
+			int valorAluguelImovel = imovel.getValorAluguel(faceDadosSorteados.getSomaFaces());
+			Dono donoImovel = imovel.getDono();
+			donoImovel.getConta().depositar(valorAluguelImovel);
+			jogador.getConta().sacar(valorAluguelImovel);
+
+			ControladorElementosGraficos controladorElementosGraficos = ControladorElementosGraficos.getInstance();
+			controladorElementosGraficos.getiPainelDeMensagensDoJogo()
+					.mostrarMensagem("VOCE ALUGOU UM IMOVEL. SALDO: " + jogador.getConta().getSaldo());
+		} catch (SaldoInsufucienteException e) {
+			new ControladorPartida().removerJogadorDaPartida(jogador);
 		}
 	}
 
-	public void pagarAluguelDeImovel(Imovel imovel, Dono jogador, FaceDadosSorteado faceDadosSorteados) {
-		if (!imovel.getDono().equals(jogador)) {
-			imovel.getDono().getConta().depositar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
-			jogador.getConta().sacar(imovel.getValorAluguel(faceDadosSorteados.getSomaFaces()));
-		}
-	}
-
-	public void prenderJogador(Jogador jogador) {
-		
-	}
 }

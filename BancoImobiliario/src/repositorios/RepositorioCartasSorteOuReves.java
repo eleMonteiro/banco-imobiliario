@@ -3,11 +3,12 @@ package repositorios;
 import java.util.ArrayList;
 import java.util.List;
 
+import acoes.AcaoAvancarAtePontoDePartida;
+import acoes.AcaoPagarValor;
+import acoes.AcaoReceberValor;
+import acoes.AcaoCartaLiberarDaPrisao;
+import acoes.AcaoVaParaAPrisao;
 import cartasSorteOuReves.CartaSorteOuReves;
-import modelos.AcaoAvancarAtePontoDePartida;
-import modelos.AcaoPagarValor;
-import modelos.AcaoReceberValor;
-import modelos.AcaoVaParaAPrisao;
 
 public class RepositorioCartasSorteOuReves {
 
@@ -143,7 +144,7 @@ public class RepositorioCartasSorteOuReves {
 
 		CartaSorteOuReves carta26 = new CartaSorteOuReves("Sorte",
 				"Saida livre da prisao. (Conserve este cartao para quando lhe for preciso ou negocie-o em qualquer ocasiao, por preco a combinar).");
-		carta26.setAcao(null);
+		carta26.setAcao(new AcaoCartaLiberarDaPrisao());
 
 		CartaSorteOuReves carta27 = new CartaSorteOuReves("Sorte",
 				"Voce este com Sorte. Suas acoes na Bolsa de Valores estao em alta.");

@@ -3,6 +3,8 @@ package modelos;
 import java.util.ArrayList;
 import java.util.List;
 
+import tabuleiro.Tabuleiro;
+
 public class Partida {
 
 	private static Partida partida;
@@ -32,9 +34,13 @@ public class Partida {
 		this.jogadores = jogadores;
 	}
 
+	public void removerJogador(Jogador jogador) {
+		jogadores.remove(jogador);
+	}
+
 	public List<Jogador> criarJogadores(int quantidadeDeJogadores) {
 		for (int i = 0; i < quantidadeDeJogadores; i++) {
-			Jogador novoJogador = new Jogador(2458, tabuleiro.getCasaInicial());
+			Jogador novoJogador = new Jogador(2458, "Jogador " + i, tabuleiro.getCasaInicial());
 			jogadores.add(novoJogador);
 		}
 

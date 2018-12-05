@@ -3,13 +3,12 @@ package repositorios;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelos.FaceDadosSorteado;
+import dado.FaceDadosSorteado;
 
 public class RepositorioFacesDoDadoSorteada {
 
 	private static RepositorioFacesDoDadoSorteada repositorio = null;
 	private List<FaceDadosSorteado> facesSorteadas;
-	private static int ultimaCasa = 0;
 
 	private RepositorioFacesDoDadoSorteada() {
 		this.facesSorteadas = new ArrayList<>();
@@ -27,11 +26,10 @@ public class RepositorioFacesDoDadoSorteada {
 	}
 
 	public FaceDadosSorteado ultimasFacesSorteadas() {
-		return this.facesSorteadas.get(ultimaCasa);
+		return facesSorteadas.get(facesSorteadas.size() - 1);
 	}
 
 	public void adicionarFacesSorteadas(FaceDadosSorteado faceDadoSorteados) {
 		this.facesSorteadas.add(faceDadoSorteados);
-		ultimaCasa++;
 	}
 }

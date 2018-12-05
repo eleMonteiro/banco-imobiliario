@@ -8,17 +8,11 @@ import repositorios.RepositorioCartasSorteOuReves;
 
 public class ControladorSorteOuReves {
 
-	
-	public ControladorSorteOuReves() {
-		
-	}
-		
 	public CartaSorteOuReves sortearCartaSorteOuReves() {
-		List<CartaSorteOuReves> cartas = RepositorioCartasSorteOuReves.getInstance().getCartasUsadas();
+		List<CartaSorteOuReves> cartas = RepositorioCartasSorteOuReves.getInstance().getCartasNaoUsadas();
 		Collections.shuffle(cartas);
 		CartaSorteOuReves cartaSorteada = cartas.get(0);
-    
+
 		return cartaSorteada;
-		
 	}
 }

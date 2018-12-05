@@ -19,4 +19,12 @@ public class Coordenada {
 		return y;
 	}
 
+	public boolean equals(Coordenada coordenada) {
+		if (this.getX() == coordenada.getX() && this.getY() == coordenada.getY()) {
+			return true;
+		}
+
+		return false;
+	}
+
 }

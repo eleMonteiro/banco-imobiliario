@@ -1,17 +1,28 @@
 package modelos;
 
-import cartasSorteOuReves.CartaSorteOuReves;
+import dono.Dono;
+import tabuleiro.casas.Casa;
 
 public class Jogador extends Dono {
 
+	private String nome;
 	private Casa casaAtual;
-	private CartaSorteOuReves cartaLiberarDaPrisao;
+	private boolean temCartaLiberarDaPrisao;
 	private boolean estaPreso;
 
-	public Jogador(int saldo, Casa casaAtual) {
+	public Jogador(int saldo, String nome, Casa casaAtual) {
 		super(saldo);
+		this.setNome(nome);
 		this.setCasaAtual(casaAtual);
 		this.setEstaPreso(false);
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Casa getCasaAtual() {
@@ -30,12 +41,12 @@ public class Jogador extends Dono {
 		this.estaPreso = estaPreso;
 	}
 
-	public CartaSorteOuReves getCartaLiberarDaPrisao() {
-		return cartaLiberarDaPrisao;
+	public boolean temCartaLiberarDaPrisao() {
+		return temCartaLiberarDaPrisao;
 	}
 
-	public void setCartaLiberarDaPrisao(CartaSorteOuReves cartaLiberarDaPrisao) {
-		this.cartaLiberarDaPrisao = cartaLiberarDaPrisao;
+	public void setTemCartaLiberarDaPrisao(boolean temCartaLiberarDaPrisao) {
+		this.temCartaLiberarDaPrisao = temCartaLiberarDaPrisao;
 	}
 
 }

@@ -9,7 +9,7 @@ public class DadoDuplo {
 	private Sprite dadoEsquerda;
 
 	public DadoDuplo() {
-		
+
 	}
 
 	public void setValorDadoDireita(int valor) {
@@ -18,7 +18,7 @@ public class DadoDuplo {
 		this.dadoDireita.y = 544;
 		this.dadoDireita.draw();
 	}
-	
+
 	public void setValorDadoEsquerda(int valor) {
 		this.dadoEsquerda = new Sprite(URL.sprite("dado-" + valor + ".png"));
 		this.dadoEsquerda.x = 448;

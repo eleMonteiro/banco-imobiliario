@@ -3,15 +3,17 @@ package igu;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import controladores.ControladorDado;
 import controladores.ControladorPartida;
+import dado.FaceDadosSorteado;
 import jplay.Keyboard;
 import jplay.Scene;
 import jplay.URL;
 import jplay.Window;
-import modelos.Casa;
-import modelos.FaceDadosSorteado;
 import modelos.Jogador;
+import tabuleiro.casas.Casa;
 
 public class Tabuleiro {
 
@@ -43,14 +45,29 @@ public class Tabuleiro {
 			cena.draw();
 			mostrarDados(faceDadosSorteado.getFaceDadoDois(), faceDadosSorteado.getFaceDadoUm());
 			mostrarPeoes();
-			janela.update();
 
 			if (this.teclado.keyDown(Keyboard.SPACE_KEY)) {
 				faceDadosSorteado = new ControladorDado().lancarDado();
+				mostrarDados(faceDadosSorteado.getFaceDadoDois(), faceDadosSorteado.getFaceDadoUm());
+
 				novaJogada(faceDadosSorteado);
 				atualizaCoordenadasPeoes();
+				mostrarPeoes();
+
+				janela.update();
+
+				executarAcaoDaCasa();
+
 				mudarJogadorDaVez();
 			}
+
+			Jogador jogador = new ControladorPartida().getVencedor();
+			if (jogador != null) {
+				JOptionPane.showMessageDialog(null, jogador.getNome() + " VENCEU");
+				break;
+			}
+
+			janela.update();
 		}
 	}
 
@@ -60,8 +77,12 @@ public class Tabuleiro {
 	}
 
 	private void mostrarPeoes() {
+		List<Jogador> jogadores = new ControladorPartida().getJogadores();
+
 		for (Peao peao : peoes) {
-			peao.moverParaCoordenada();
+			if (jogadores.contains(peao.getJogador())) {
+				peao.moverParaCoordenada();
+			}
 		}
 	}
 
@@ -69,10 +90,16 @@ public class Tabuleiro {
 		new ControladorPartida().novaJogada(faceDadosSorteado);
 	}
 
+	private void executarAcaoDaCasa() {
+		Jogador jogadorDaVez = new ControladorPartida().getJogadorDaVez();
+		Casa casaAtual = jogadorDaVez.getCasaAtual();
+		casaAtual.getAcao().iniciarAcao(jogadorDaVez);
+	}
+
 	private void atualizaCoordenadasPeoes() {
 		Jogador jogadorDaVez = new ControladorPartida().getJogadorDaVez();
-		CasaTabuleiro casaTabuleiro = procuraCasaDoTabuleiro(jogadorDaVez.getCasaAtual());
 		Peao peao = procurarPeaoDoJogador(jogadorDaVez);
+		CasaTabuleiro casaTabuleiro = procurarCasaTabuleiro(jogadorDaVez.getCasaAtual());
 		peao.setCoordenada(casaTabuleiro.getCoordenada());
 	}
 
@@ -90,7 +117,7 @@ public class Tabuleiro {
 		return null;
 	}
 
-	private CasaTabuleiro procuraCasaDoTabuleiro(Casa casa) {
+	private CasaTabuleiro procurarCasaTabuleiro(Casa casa) {
 		for (CasaTabuleiro casaTabuleiro : casasTabuleiro) {
 			if (casa == casaTabuleiro.getCasa()) {
 				return casaTabuleiro;

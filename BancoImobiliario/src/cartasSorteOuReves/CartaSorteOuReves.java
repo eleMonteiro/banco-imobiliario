@@ -1,12 +1,12 @@
 package cartasSorteOuReves;
 
-import modelos.Acao;
+import acoes.IAcao;
 
 public class CartaSorteOuReves {
 
 	private String nome;
 	private String descricao;
-	private Acao acao;
+	private IAcao acao;
 
 	public CartaSorteOuReves(String nome, String descricao) {
 		super();
@@ -30,11 +30,11 @@ public class CartaSorteOuReves {
 		this.descricao = descricao;
 	}
 
-	public Acao getAcao() {
+	public IAcao getAcao() {
 		return acao;
 	}
 
-	public void setAcao(Acao acao) {
+	public void setAcao(IAcao acao) {
 		this.acao = acao;
 	}
 
