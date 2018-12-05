@@ -2,8 +2,14 @@ package modelos.tabuleiro;
 
 public class CasaEspecial extends Casa {
 
-	public CasaEspecial() {
+	private int taxa;
 
+	public CasaEspecial(int taxa) {
+		this.taxa = taxa;
+	}
+
+	public int getTaxa() {
+		return taxa;
 	}
 
 }

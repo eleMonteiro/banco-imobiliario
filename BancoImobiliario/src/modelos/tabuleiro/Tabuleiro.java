@@ -19,7 +19,7 @@ public class Tabuleiro {
 
 	private List<Casa> casas;
 	private List<Terreno> terrenos;
-	private CasaEspecial prisao;
+	private Casa prisao;
 	private CasaEspecial casaInicial;
 
 	public Tabuleiro() {
@@ -81,11 +81,11 @@ public class Tabuleiro {
 		this.casaInicial = casaInicial;
 	}
 
-	public CasaEspecial getPrisao() {
+	public Casa getPrisao() {
 		return prisao;
 	}
 
-	public void setPrisao(CasaEspecial prisao) {
+	public void setPrisao(Casa prisao) {
 		this.prisao = prisao;
 	}
 
@@ -110,7 +110,7 @@ public class Tabuleiro {
 	}
 
 	private void adicionarCasas() {
-		CasaEspecial casaInicial = new CasaEspecial();
+		CasaEspecial casaInicial = new CasaEspecial(200);
 		casaInicial.setAcao(new AcaoCasaInicio());
 		this.casas.add(casaInicial);
 		this.setCasaInicial(casaInicial);
@@ -121,7 +121,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoLilas1);
 		this.terrenos.add(terrenoLilas1);
 		
-		CasaEspecial sorteOuReves1 = new CasaEspecial();
+		Casa sorteOuReves1 = new Casa();
 		sorteOuReves1.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves1);
 
@@ -163,7 +163,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoAzulClaro3);
 		this.terrenos.add(terrenoAzulClaro3);
 
-		CasaEspecial prisao = new CasaEspecial();
+		Casa prisao = new Casa();
 		prisao.setAcao(new AcaoCasaPrisao());
 		this.casas.add(prisao);
 		this.setPrisao(prisao);
@@ -174,7 +174,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoVioleta1);
 		this.terrenos.add(terrenoVioleta1);
 		
-		CasaEspecial sorteOuReves2 = new CasaEspecial();
+		Casa sorteOuReves2 = new Casa();
 		sorteOuReves2.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves2);
 
@@ -194,7 +194,7 @@ public class Tabuleiro {
 		companhia3.setAcao(new AcaoCasaCompanhia(companhia3));
 		this.casas.add(companhia3);
 
-		CasaEspecial sorteOuReves3 = new CasaEspecial();
+		Casa sorteOuReves3 = new Casa();
 		sorteOuReves3.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves3);
 
@@ -204,7 +204,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoLaranja1);
 		this.terrenos.add(terrenoLaranja1);
 		
-		CasaEspecialComTaxa casaEspecialComTaxa1 = new CasaEspecialComTaxa(200);
+		CasaEspecial casaEspecialComTaxa1 = new CasaEspecial(200);
 		casaEspecialComTaxa1.setAcao(new AcaoCasaLucrosEDividendos(casaEspecialComTaxa1));
 		this.casas.add(casaEspecialComTaxa1);
 
@@ -214,7 +214,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoLaranja2);
 		this.terrenos.add(terrenoLaranja2);
 		
-		CasaEspecial casaEspecial1 = new CasaEspecial();
+		Casa casaEspecial1 = new Casa();
 		casaEspecial1.setAcao(new AcaoCasaParadaLivre());
 		this.casas.add(casaEspecial1);
 
@@ -224,7 +224,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoVermelho1);
 		this.terrenos.add(terrenoVermelho1);
 
-		CasaEspecial sorteOuReves4 = new CasaEspecial();
+		Casa sorteOuReves4 = new Casa();
 		sorteOuReves4.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves4);
 
@@ -234,7 +234,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoVermelho2);
 		this.terrenos.add(terrenoVermelho2);
 
-		CasaEspecialComTaxa casaEspecialComTaxa2 = new CasaEspecialComTaxa(200);
+		CasaEspecial casaEspecialComTaxa2 = new CasaEspecial(200);
 		casaEspecialComTaxa2.setAcao(new AcaoCasaImpostoDeRenda(casaEspecialComTaxa2));
 		this.casas.add(casaEspecialComTaxa2);
 
@@ -248,7 +248,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoAmarelo1);
 		this.terrenos.add(terrenoAmarelo1);
 
-		CasaEspecial sorteOuReves5 = new CasaEspecial();
+		Casa sorteOuReves5 = new Casa();
 		sorteOuReves5.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(sorteOuReves5);
 
@@ -264,7 +264,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoAmarelo3);
 		this.terrenos.add(terrenoAmarelo3);
 		
-		CasaEspecial casaEspecial3 = new CasaEspecial();
+		Casa casaEspecial3 = new Casa();
 		casaEspecial3.setAcao(new AcaoVaParaAPrisao());
 		this.casas.add(casaEspecial3);
 
@@ -300,7 +300,7 @@ public class Tabuleiro {
 		this.casas.add(terrenoVerde4);
 		this.terrenos.add(terrenoVerde4);
 
-		CasaEspecial casaEspecial4 = new CasaEspecial();
+		Casa casaEspecial4 = new Casa();
 		casaEspecial4.setAcao(new AcaoCasaSorteOuReves());
 		this.casas.add(casaEspecial4);
 

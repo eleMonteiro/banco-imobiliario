@@ -4,13 +4,13 @@ import controladores.ControladorPartida;
 import excecoes.SaldoInsufucienteException;
 import modelos.banco.Banco;
 import modelos.jogador.Jogador;
-import modelos.tabuleiro.CasaEspecialComTaxa;
+import modelos.tabuleiro.CasaEspecial;
 
 public class AcaoCasaImpostoDeRenda implements IAcao {
 
-	private CasaEspecialComTaxa casaEspecialComTaxa;
+	private CasaEspecial casaEspecialComTaxa;
 
-	public AcaoCasaImpostoDeRenda(CasaEspecialComTaxa casaEspecialComTaxa) {
+	public AcaoCasaImpostoDeRenda(CasaEspecial casaEspecialComTaxa) {
 		this.casaEspecialComTaxa = casaEspecialComTaxa;
 	}
 
