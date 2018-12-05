@@ -1,8 +1,8 @@
 package acoes;
 
-import modelos.Jogador;
 import modelos.Partida;
-import tabuleiro.casas.Casa;
+import modelos.jogador.Jogador;
+import modelos.tabuleiro.Casa;
 
 public class AcaoAvancarAtePontoDePartida implements IAcao {
 
@@ -13,7 +13,6 @@ public class AcaoAvancarAtePontoDePartida implements IAcao {
 		Casa casaAtual = jogador.getCasaAtual();
 		casaAtual.removerJogadorDaCasa(jogador);
 		novaCasa.inserirJogadorNaCasa(jogador);
-		jogador.setEstaPreso(true);
 	}
 
 }

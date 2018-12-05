@@ -3,7 +3,7 @@ package repositorios;
 import java.util.ArrayList;
 import java.util.List;
 
-import dado.FaceDadosSorteado;
+import modelos.dado.FaceDadosSorteado;
 
 public class RepositorioFacesDoDadoSorteada {
 

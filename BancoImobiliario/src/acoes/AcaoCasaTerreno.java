@@ -5,12 +5,12 @@ import java.util.List;
 import controladores.ControladorElementosGraficos;
 import controladores.ControladorPartida;
 import controladores.ControladorTabuleiro;
-import dono.Dono;
 import excecoes.SaldoInsufucienteException;
-import modelos.Banco;
-import modelos.Jogador;
+import modelos.banco.Banco;
+import modelos.jogador.Dono;
+import modelos.jogador.Jogador;
+import modelos.tabuleiro.Terreno;
 import repositorios.RepositorioFacesDoDadoSorteada;
-import tabuleiro.casas.Terreno;
 
 public class AcaoCasaTerreno implements IAcao {
 
@@ -34,11 +34,11 @@ public class AcaoCasaTerreno implements IAcao {
 				} catch (SaldoInsufucienteException e) {
 					controladorElementosGraficos.getiPainelDeMensagensDoJogo().mostrarMensagem(e.getMessage());
 
-					new ControladorTabuleiro().pagarAluguelDeImovel(terreno, jogador,
+					new ControladorTabuleiro().pagarAluguel(terreno, jogador,
 							RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 				}
 			} else if (respostaDoJogador == 1) {
-				new ControladorTabuleiro().pagarAluguelDeImovel(terreno, jogador,
+				new ControladorTabuleiro().pagarAluguel(terreno, jogador,
 						RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 			}
 

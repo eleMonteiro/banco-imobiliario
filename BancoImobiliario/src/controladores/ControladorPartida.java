@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.ListIterator;
 
 import acoes.AcaoVaParaAPrisao;
-import dado.FaceDadosSorteado;
-import modelos.Banco;
-import modelos.Jogador;
 import modelos.Partida;
+import modelos.banco.Banco;
+import modelos.dado.FaceDadosSorteado;
+import modelos.jogador.Jogador;
+import modelos.tabuleiro.Imovel;
+import modelos.tabuleiro.Tabuleiro;
 import repositorios.RepositorioFacesDoDadoSorteada;
-import tabuleiro.Tabuleiro;
-import tabuleiro.casas.Imovel;
 
 public class ControladorPartida {
 
@@ -59,7 +59,7 @@ public class ControladorPartida {
 		Partida partida = Partida.getInstance();
 		return partida.criarJogadores(quantidadeDeJogadores);
 	}
-
+	
 	public void mudarJogadorDaVez() {
 		Partida.getInstance().mudarJogadorDaVez();
 	}

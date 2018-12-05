@@ -1,8 +1,8 @@
 package controladores;
 
-import dado.Dado;
-import dado.FaceDadosSorteado;
 import modelos.Partida;
+import modelos.dado.Dado;
+import modelos.dado.FaceDadosSorteado;
 import repositorios.RepositorioFacesDoDadoSorteada;
 
 public class ControladorDado {

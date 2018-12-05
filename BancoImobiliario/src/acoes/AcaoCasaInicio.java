@@ -1,7 +1,7 @@
 package acoes;
 
 import controladores.ControladorElementosGraficos;
-import modelos.Jogador;
+import modelos.jogador.Jogador;
 
 public class AcaoCasaInicio implements IAcao {
 

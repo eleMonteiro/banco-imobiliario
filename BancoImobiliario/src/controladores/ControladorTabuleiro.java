@@ -1,14 +1,14 @@
 package controladores;
 
-import dado.FaceDadosSorteado;
-import dono.Dono;
+import acoes.AcaoCasaInicio;
 import excecoes.SaldoInsufucienteException;
-import igu.ComponentesGraficos;
-import modelos.Jogador;
 import modelos.Partida;
-import tabuleiro.Tabuleiro;
-import tabuleiro.casas.Casa;
-import tabuleiro.casas.Imovel;
+import modelos.dado.FaceDadosSorteado;
+import modelos.jogador.Dono;
+import modelos.jogador.Jogador;
+import modelos.tabuleiro.Casa;
+import modelos.tabuleiro.Imovel;
+import modelos.tabuleiro.Tabuleiro;
 
 public class ControladorTabuleiro {
 
@@ -19,10 +19,10 @@ public class ControladorTabuleiro {
 		Casa novaCasa = tabuleiro.getCasaComSalto(casaAtual, numeroDeCasasAAndar);
 		casaAtual.removerJogadorDaCasa(jogador);
 		novaCasa.inserirJogadorNaCasa(jogador);
-	}
-
-	public int perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel() {
-		return new ComponentesGraficos().perguntarSeJogadorQuerComprarTerrenoOuPagarAluguel();
+		
+		
+		if( tabuleiro.getIndiceCasaComSalto(casaAtual, numeroDeCasasAAndar) > 39 )
+			new AcaoCasaInicio().iniciarAcao(jogador);
 	}
 
 	public void comprarImovel(Imovel imovel, Dono novoDono) throws SaldoInsufucienteException {
@@ -36,7 +36,7 @@ public class ControladorTabuleiro {
 					.mostrarMensagem("VOCE COMPROU UM IMOVEL. SALDO: " + novoDono.getConta().getSaldo());
 	}
 
-	public void pagarAluguelDeImovel(Imovel imovel, Jogador jogador, FaceDadosSorteado faceDadosSorteados) {
+	public void pagarAluguel(Imovel imovel, Jogador jogador, FaceDadosSorteado faceDadosSorteados) {
 		try {
 			int valorAluguelImovel = imovel.getValorAluguel(faceDadosSorteados.getSomaFaces());
 			Dono donoImovel = imovel.getDono();

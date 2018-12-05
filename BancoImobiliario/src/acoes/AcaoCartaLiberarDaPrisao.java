@@ -1,6 +1,6 @@
 package acoes;
 
-import modelos.Jogador;
+import modelos.jogador.Jogador;
 
 public class AcaoCartaLiberarDaPrisao implements IAcao {
 

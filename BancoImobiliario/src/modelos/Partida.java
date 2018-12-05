@@ -3,7 +3,8 @@ package modelos;
 import java.util.ArrayList;
 import java.util.List;
 
-import tabuleiro.Tabuleiro;
+import modelos.jogador.Jogador;
+import modelos.tabuleiro.Tabuleiro;
 
 public class Partida {
 

@@ -1,8 +1,8 @@
 package acoes;
 
-import modelos.Jogador;
 import modelos.Partida;
-import tabuleiro.casas.Casa;
+import modelos.jogador.Jogador;
+import modelos.tabuleiro.Casa;
 
 public class AcaoVaParaAPrisao implements IAcao {
 

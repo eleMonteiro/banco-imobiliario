@@ -2,12 +2,12 @@ package acoes;
 
 import controladores.ControladorElementosGraficos;
 import controladores.ControladorTabuleiro;
-import dono.Dono;
 import excecoes.SaldoInsufucienteException;
-import modelos.Banco;
-import modelos.Jogador;
+import modelos.banco.Banco;
+import modelos.jogador.Dono;
+import modelos.jogador.Jogador;
+import modelos.tabuleiro.Companhia;
 import repositorios.RepositorioFacesDoDadoSorteada;
-import tabuleiro.casas.Companhia;
 
 public class AcaoCasaCompanhia implements IAcao {
 
@@ -32,16 +32,16 @@ public class AcaoCasaCompanhia implements IAcao {
 				} catch (SaldoInsufucienteException e) {
 					controladorElementosGraficos.getiPainelDeMensagensDoJogo().mostrarMensagem(e.getMessage());
 
-					new ControladorTabuleiro().pagarAluguelDeImovel(companhia, jogador,
+					new ControladorTabuleiro().pagarAluguel(companhia, jogador,
 							RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 				}
 			} else if (respostaDoJogador == 1) {
-				new ControladorTabuleiro().pagarAluguelDeImovel(companhia, jogador,
+				new ControladorTabuleiro().pagarAluguel(companhia, jogador,
 						RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 			}
 
 		} else if (jogador != donoTerreno) {
-			new ControladorTabuleiro().pagarAluguelDeImovel(companhia, jogador,
+			new ControladorTabuleiro().pagarAluguel(companhia, jogador,
 					RepositorioFacesDoDadoSorteada.getInstance().ultimasFacesSorteadas());
 		}
 

@@ -2,9 +2,9 @@ package acoes;
 
 import controladores.ControladorPartida;
 import excecoes.SaldoInsufucienteException;
-import modelos.Banco;
-import modelos.Jogador;
-import tabuleiro.casas.CasaEspecialComTaxa;
+import modelos.banco.Banco;
+import modelos.jogador.Jogador;
+import modelos.tabuleiro.CasaEspecialComTaxa;
 
 public class AcaoCasaImpostoDeRenda implements IAcao {
 
